@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GymFlex - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -25,78 +29,73 @@
             <p>Start your fitness journey today!</p>
             <a href="signup.html" class="cta-button">Join Now</a>
         </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose GymFlex?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Modern Equipment</h3>
+                        <p>State-of-the-art fitness equipment for all your workout needs</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Expert Trainers</h3>
+                        <p>Professional trainers to guide you through your fitness journey</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Flexible Hours</h3>
+                        <p>Open 24/7 to fit your busy schedule</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Members Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"GymFlex transformed my life! The trainers are amazing and the community is so supportive."</p>
+                        <p class="testimonial-author">- Sarah Johnson</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Best gym I've ever been to. The equipment is top-notch and always well-maintained."</p>
+                        <p class="testimonial-author">- Mike Thompson</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-</body>
-</html>
 
-<!-- frontend/login.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymFlex - Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/auth.css">
-</head>
-<body>
-    <div class="auth-container">
-        <form id="loginForm" class="auth-form">
-            <h2>Login to GymFlex</h2>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>GymFlex</h3>
+                    <p>Your journey to fitness starts here.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#classes">Classes</a></li>
+                        <li><a href="#trainers">Trainers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@gymflex.com</li>
+                        <li><i class="fas fa-location-dot"></i> 123 Fitness Street, Gym City</li>
+                    </ul>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit">Login</button>
-            <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-        </form>
-    </div>
-    <script src="js/login.js"></script>
-</body>
-</html>
-
-<!-- frontend/signup.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GymFlex - Sign Up</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/auth.css">
-</head>
-<body>
-    <div class="auth-container">
-        <form id="signupForm" class="auth-form">
-            <h2>Join GymFlex</h2>
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
-            </div>
-            <div class="form-group">
-                <label for="membershipType">Membership Type</label>
-                <select id="membershipType">
-                    <option value="BASIC">Basic</option>
-                    <option value="PREMIUM">Premium</option>
-                    <option value="PRO">Pro</option>
-                </select>
-            </div>
-            <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="login.html">Login</a></p>
-        </form>
-    </div>
-    <script src="js/signup.js"></script>
+        </div>
+    </footer>
 </body>
 </html>

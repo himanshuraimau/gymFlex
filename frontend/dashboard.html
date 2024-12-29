@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymFlex - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>GymFlex</h1>
+            <div class="nav-links">
+                <span id="userName"></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container dashboard">
+        <section class="welcome-section">
+            <h2>Welcome, <span id="userNameDisplay"></span>!</h2>
+            <p>Membership Type: <span id="membershipType"></span></p>
+        </section>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Workout Schedule</h3>
+                <p>View and manage your workout routine</p>
+                <a href="#" class="card-link">View Schedule</a>
+            </div>
+            <div class="card">
+                <h3>Progress Tracker</h3>
+                <p>Track your fitness journey</p>
+                <a href="#" class="card-link">View Progress</a>
+            </div>
+            <div class="card">
+                <h3>Nutrition Plan</h3>
+                <p>Check your meal plans</p>
+                <a href="#" class="card-link">View Plan</a>
+            </div>
+        </div>
+    </main>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
