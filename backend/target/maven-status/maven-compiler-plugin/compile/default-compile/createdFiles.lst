@@ -1,1 +1,7 @@
-com/gym/app/GymApplication.class
+com\gym\app\dto\LoginRequest.class
+com\gym\app\dto\SignupRequest.class
+com\gym\app\model\User.class
+com\gym\app\controller\AuthController.class
+com\gym\app\GymApplication.class
+com\gym\app\repository\UserRepository.class
+com\gym\app\service\UserService.class
