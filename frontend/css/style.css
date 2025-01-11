@@ -1,10 +1,20 @@
 :root {
-    --primary-color: #4CAF50;
-    --secondary-color: #2196F3;
-    --background-color: #f5f5f5;
-    --text-color: #333;
-    --border-radius: 8px;
-    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --primary-color: #4f46e5;
+    --secondary-color: #7c3aed;
+    --accent-color: #3b82f6;
+    --danger-color: #dc3545;
+    --success-color: #4CAF50;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --text-light: #666;
+    --border-color: #ddd;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --footer-bg: #f8fafc;
+    --footer-text: #1e293b;
+    --footer-link: #4f46e5;
+    --footer-hover: #3b82f6;
+    --footer-border: #e2e8f0;
 }
 
 * {
@@ -15,7 +25,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
+    background-color: #f8f9ff;
     color: var(--text-color);
     line-height: 1.6;
     margin: 0;
@@ -29,12 +39,13 @@ body {
 }
 
 .navbar {
-    background-color: white;
-    box-shadow: var(--box-shadow);
-    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .navbar .container {
@@ -44,7 +55,10 @@ body {
 }
 
 .navbar h1 {
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
 }
 
 .navbar h1 a {
@@ -69,11 +83,11 @@ body {
 }
 
 .nav-links a {
-    color: var(--dark-color);
-    text-decoration: none;
-    margin-left: 20px;
+    color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 .nav-separator {
@@ -82,24 +96,26 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    transform: translateY(-2px);
 }
 
 .cta-button {
     display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    padding: 12px 30px;
     color: white;
-    text-decoration: none;
     border-radius: 25px;
-    transition: all 0.3s;
     font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 .cta-button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
 /* frontend/css/auth.css */
@@ -142,7 +158,7 @@ body {
 .form-group select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     transition: all 0.3s;
 }
@@ -157,7 +173,7 @@ body {
 input, select, textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-family: 'Poppins', sans-serif;
 }
@@ -177,7 +193,7 @@ button {
 }
 
 button:hover {
-    background-color: #3d8b40; /* Darker shade of primary color */
+    background-color: var(--success-color); /* Darker shade of primary color */
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -190,7 +206,7 @@ button:active {
 .logout-btn {
     width: auto;
     padding: 0.5rem 1rem;
-    background-color: #dc3545;
+    background-color: var(--danger-color);
     color: white;
     font-size: 14px;
     border-radius: 20px;
@@ -204,7 +220,7 @@ button:active {
 
 .logout-btn:hover,
 .logout-btn:active {
-    background-color: #dc3545;
+    background-color: var(--danger-color);
     transform: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
@@ -223,7 +239,7 @@ button:active {
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #666;
+    color: var(--text-light);
 }
 
 /* Dashboard Styles */
@@ -341,5 +357,83 @@ button:active {
 .progress-notes {
     margin-top: 0.5rem;
     font-style: italic;
-    color: #666;
+    color: var(--text-light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #1f2937;
+}
+
+.footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 80px 0 40px;
+    position: relative;
+    margin-top: 80px;
+    border-top: 1px solid var(--footer-border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.footer-section h3 {
+    color: var(--footer-text);
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+.footer-section ul li {
+    margin-bottom: 15px;
+    color: var(--footer-text);
+}
+
+.footer-section a {
+    color: var(--footer-link);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.footer-section a:hover {
+    color: var(--footer-hover);
+    transform: translateX(5px);
+}
+
+.footer-section i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--footer-border) 50%,
+        transparent 100%);
 }

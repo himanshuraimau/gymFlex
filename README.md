@@ -1,106 +1,152 @@
-# Gym Management System
+# GymFlex - Modern Fitness Management System
 
-A simple web-based gym management system with user authentication.
+A comprehensive fitness management system with modern UI and full-stack capabilities.
 
-## Project Structure
+## 🎨 Design System & UI Components
+
+### Color Palette
+```css
+Primary: #4f46e5 (Indigo)
+Secondary: #7c3aed (Purple)
+Accent: #3b82f6 (Blue)
+Success: #4CAF50 (Green)
+Danger: #dc3545 (Red)
 ```
-gym-project/
+
+### UI Features
+- Glass morphism effects
+- Gradient backgrounds
+- Smooth animations
+- Toast notifications
+- Responsive layouts
+- Custom form elements
+
+## 🚀 Core Features
+
+### User Management
+- Authentication system
+- Profile management
+- Membership tracking
+
+### Workout Features
+- Weekly schedule planner
+- Workout type categorization
+- Time slot management
+- Progress tracking
+
+### Nutrition Management
+- Meal logging system
+- Calorie tracking
+- Macro nutrients monitoring
+- Meal type categorization
+
+### Progress Tracking
+- Weight tracking
+- Body measurements
+- BMI calculator
+- Progress visualization
+
+## 🛠️ Technical Stack
+
+### Frontend
+- HTML5/CSS3
+- Modern CSS Features:
+  - CSS Variables
+  - Flexbox & Grid
+  - Animations
+  - Glass morphism
+- Vanilla JavaScript
+- Responsive Design
+
+### Backend (Spring Boot)
+- Models:
+  - User
+  - Progress
+  - Nutrition
+  - Workout Schedule
+- RESTful APIs
+- JPA/Hibernate
+- Security implementation
+
+## 📦 Project Structure
+```
+gymflex/
 ├── frontend/
 │   ├── css/
-│   │   └── style.css
+│   │   ├── style.css      # Core styles
+│   │   ├── home.css       # Landing page
+│   │   ├── dashboard.css  # Dashboard
+│   │   ├── schedule.css   # Schedule
+│   │   └── toast.css      # Notifications
 │   ├── js/
-│   │   └── auth.js
-│   ├── login.html
-│   ├── signup.html
-│   └── dashboard.html
+│   │   ├── auth.js
+│   │   ├── dashboard.js
+│   │   └── schedule.js
+│   └── *.html
 └── backend/
-    └── src/
-        └── main/
-            ├── java/
-            │   └── com/gym/app/
-            └── resources/
-                └── application.properties
+    └── src/main/java/com/gym/app/
+        ├── controller/
+        ├── model/
+        ├── repository/
+        └── service/
 ```
 
-## Prerequisites
-
-- Java JDK 17 or higher
-- Maven 3.6 or higher
-- Node.js (for running a local development server)
-
-## Running the Application
+## 🚀 Setup & Installation
 
 ### Backend Setup
-
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-
-2. Build the project:
-   ```bash
-   mvn clean install
-   ```
-
-3. Run the Spring Boot application:
-   ```bash
-   mvn spring-boot:run
-   ```
-
-The backend server will start on `http://localhost:8080`
+```bash
+cd backend
+mvn clean install
+mvn spring-boot:run
+```
 
 ### Frontend Setup
+```bash
+cd frontend
+# Using Python SimpleHTTPServer
+python -m http.server 3000
+# OR using Node http-server
+npx http-server -p 3000
+```
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
+## 🔒 Security Features
+- Password encryption
+- JWT authentication
+- CORS configuration
+- Input validation
+- XSS protection
 
-2. You can use any simple HTTP server to serve the frontend files. For example, using Python:
-   ```bash
-   # Python 3.x
-   python -m http.server 3000
-   ```
-   Or using Node.js's http-server:
-   ```bash
-   # Install http-server globally
-   npm install -g http-server
-   
-   # Run the server
-   http-server -p 3000
-   ```
+## 🌐 API Endpoints
 
-The frontend will be accessible at `http://localhost:3000`
+### Authentication
+- POST `/api/auth/signup`
+- POST `/api/auth/login`
+- POST `/api/auth/logout`
 
-## Features
+### Workout Management
+- GET `/api/schedule/user/{userId}`
+- POST `/api/schedule/save`
 
-- User registration with membership type selection
-- User authentication (login/logout)
-- Simple dashboard interface
-- Responsive design
+### Nutrition Tracking
+- GET `/api/nutrition/user/{userId}`
+- POST `/api/nutrition/save`
 
-## API Endpoints
+### Progress Monitoring
+- GET `/api/progress/user/{userId}`
+- POST `/api/progress/save`
 
-- POST `/api/auth/signup` - Register a new user
-- POST `/api/auth/login` - Authenticate user
+## 💻 Browser Support
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-## Development
+## 🤝 Contributing
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Open pull request
 
-### Backend Development
-- The application uses H2 in-memory database
-- Access H2 console at `http://localhost:8080/h2-console`
-- Database credentials are in `application.properties`
-
-### Frontend Development
-- HTML/CSS/JavaScript
-- No build process required
-- Uses fetch API for backend communication
-
-## Security Notes
-
-This is a basic implementation and should not be used in production without:
-- Proper password hashing
-- JWT or session-based authentication
-- HTTPS implementation
-- Input validation and sanitization
-- Production-grade database
+## 📝 License
+MIT License - See [LICENSE](LICENSE) for details
