@@ -4,7 +4,11 @@
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/WorkoutSchedule.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/repository/WorkoutRepository.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/dto/SignupRequest.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/repository/ProgressRepository.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/Workout.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/controller/ProgressController.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/Progress.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/repository/WorkoutScheduleRepository.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/User.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/service/UserService.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/controller/WorkoutScheduleController.java

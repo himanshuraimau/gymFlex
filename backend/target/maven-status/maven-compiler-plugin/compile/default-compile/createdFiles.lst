@@ -1,6 +1,9 @@
 com/gym/app/controller/AuthController.class
+com/gym/app/repository/WorkoutScheduleRepository.class
 com/gym/app/GymApplication.class
+com/gym/app/controller/ProgressController.class
 com/gym/app/model/WorkoutSchedule.class
+com/gym/app/repository/ProgressRepository.class
 com/gym/app/config/SQLiteDialectConfig.class
 com/gym/app/dto/SignupRequest.class
 com/gym/app/dto/LoginRequest.class
@@ -8,6 +11,7 @@ com/gym/app/repository/WorkoutRepository.class
 com/gym/app/controller/WorkoutScheduleController.class
 com/gym/app/model/User.class
 com/gym/app/model/Workout.class
+com/gym/app/model/Progress.class
 com/gym/app/service/UserService.class
 com/gym/app/repository/UserRepository.class
 com/gym/app/controller/WorkoutController.class

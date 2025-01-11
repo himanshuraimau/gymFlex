@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracker - GymFlex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Check login status
+        if (!localStorage.getItem('user')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1><a href="/dashboard.html">GymFlex</a></h1>
+            <div class="nav-links">
+                <span id="userName"></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="progress-section">
+            <h2>Progress Tracker</h2>
+            
+            <form id="progressForm" class="progress-form">
+                <div class="form-group">
+                    <label for="progressDate">Date</label>
+                    <input type="date" id="progressDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="progressWeight">Weight (kg)</label>
+                    <input type="number" id="progressWeight" required step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="progressBodyFat">Body Fat (%)</label>
+                    <input type="number" id="progressBodyFat" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="progressMuscleGain">Muscle Gain (kg)</label>
+                    <input type="number" id="progressMuscleGain" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="progressNotes">Notes</label>
+                    <textarea id="progressNotes" rows="3"></textarea>
+                </div>
+                <button type="submit">Save Progress</button>
+            </form>
+
+            <div class="progress-history">
+                <h3>Progress History</h3>
+                <div id="progressList" class="progress-list">
+                    <!-- Progress items will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/progress.js"></script>
+    <script>
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

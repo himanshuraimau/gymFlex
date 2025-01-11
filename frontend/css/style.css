@@ -1,10 +1,10 @@
 :root {
     --primary-color: #4CAF50;
-    --secondary-color: #45a049;
-    --dark-color: #333;
-    --light-color: #f4f4f4;
-    --danger-color: #dc3545;
-    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --secondary-color: #2196F3;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -15,8 +15,11 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
-    background-color: var(--light-color);
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -27,7 +30,7 @@ body {
 
 .navbar {
     background-color: white;
-    box-shadow: var(--shadow);
+    box-shadow: var(--box-shadow);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -44,12 +47,38 @@ body {
     color: var(--primary-color);
 }
 
+.navbar h1 a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar h1 a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#userName {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
 .nav-links a {
     color: var(--dark-color);
     text-decoration: none;
     margin-left: 20px;
     font-weight: 500;
     transition: color 0.3s;
+}
+
+.nav-separator {
+    color: #666;
+    font-weight: 300;
 }
 
 .nav-links a:hover {
@@ -99,7 +128,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -125,22 +154,59 @@ body {
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
-button {
+input, select, textarea {
     width: 100%;
-    padding: 12px;
-    background: var(--primary-color);
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
     cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background: var(--secondary-color);
+    background-color: #3d8b40; /* Darker shade of primary color */
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logout-btn {
+    width: auto;
+    padding: 0.5rem 1rem;
+    background-color: #dc3545;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    font-weight: 500;
+    transition: none;
+    transform: none;
+}
+
+.logout-btn:hover,
+.logout-btn:active {
+    background-color: #dc3545;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* frontend/css/home.css */
@@ -181,9 +247,14 @@ button:hover {
 
 .card {
     background: white;
+    border-radius: var(--border-radius);
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .auth-link {
@@ -199,4 +270,76 @@ button:hover {
 
 .auth-link a:hover {
     text-decoration: underline;
+}
+
+.progress-item {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+}
+
+.error {
+    color: #f44336;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    background: #ffebee;
+    margin: 1rem 0;
+}
+
+/* Progress Tracker Styles */
+.progress-section {
+    padding: 2rem 0;
+}
+
+.progress-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.progress-history {
+    margin-top: 2rem;
+}
+
+.progress-list {
+    margin-top: 1rem;
+}
+
+.progress-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.progress-date {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.progress-details {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.progress-stat {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.progress-notes {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #666;
 }
