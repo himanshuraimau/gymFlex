@@ -1,4 +1,5 @@
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/repository/UserRepository.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/config/SQLiteDialectConfig.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/User.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/controller/AuthController.java
 /home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/service/UserService.java
