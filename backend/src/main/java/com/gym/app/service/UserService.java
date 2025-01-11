@@ -60,7 +60,12 @@ public class UserService {
                     return ResponseEntity.ok()
                         .body(Map.of(
                             "message", "Login successful",
-                            "user", user
+                            "user", Map.of(
+                                "id", user.getId(),
+                                "email", user.getEmail(),
+                                "fullName", user.getFullName(),
+                                "membershipType", user.getMembershipType()
+                            )
                         ));
                 })
                 .orElseGet(() -> {

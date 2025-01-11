@@ -39,13 +39,17 @@ public class WorkoutController {
     }
     
     @GetMapping("/{userId}")
-    public ResponseEntity<List<Workout>> getUserWorkouts(@PathVariable Long userId) {
+    public ResponseEntity<?> getUserWorkouts(@PathVariable String userId) {
         try {
-            List<Workout> workouts = workoutRepository.findByUserIdOrderByDateDesc(userId);
+            Long userIdLong = Long.parseLong(userId);
+            List<Workout> workouts = workoutRepository.findByUserIdOrderByDateDesc(userIdLong);
             return ResponseEntity.ok(workouts);
+        } catch (NumberFormatException e) {
+            logger.error("Invalid user ID format: {}", userId);
+            return ResponseEntity.badRequest().body("Invalid user ID format");
         } catch (Exception e) {
-            logger.error("Error fetching workouts for user {}: ", userId, e);
-            return ResponseEntity.internalServerError().build();
+            logger.error("Error fetching workouts for user {}: {}", userId, e.getMessage());
+            return ResponseEntity.internalServerError().body("Error fetching workouts");
         }
     }
 }

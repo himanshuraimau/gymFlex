@@ -84,34 +84,56 @@ async function handleSignup(event) {
     }
 }
 
-async function handleLogin(event) {
-    event.preventDefault();
-    
-    const formData = {
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value
-    };
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
 
-    try {
-        const response = await fetch(`${API_URL}/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
+    if (loginForm) {
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:8080/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                console.log('Login response:', data); // Debug log
+
+                if (response.ok && data.user) {
+                    // Store the complete user object
+                    const userData = {
+                        id: data.user.id,
+                        email: data.user.email,
+                        fullName: data.user.fullName,
+                        membershipType: data.user.membershipType
+                    };
+
+                    console.log('Storing user data:', userData); // Debug log
+                    localStorage.setItem('user', JSON.stringify(userData));
+
+                    // Verify storage
+                    const storedUser = localStorage.getItem('user');
+                    console.log('Stored user data:', storedUser); // Debug log
+
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.html';
+                } else {
+                    console.error('Login failed:', data.message);
+                    alert(data.message || 'Login failed');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred during login');
+            }
         });
-
-        const data = await response.json();
-        
-        if (response.ok) {
-            showNotification('Login successful!', 'success');
-            localStorage.setItem('user', JSON.stringify(data));
-            window.location.href = 'dashboard.html';
-        } else {
-            showNotification(data || 'Login failed', 'error');
-        }
-    } catch (error) {
-        showNotification('Error during login', 'error');
-        console.error('Error:', error);
     }
-}
+
+    // ...existing signup code...
+});

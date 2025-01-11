@@ -9,6 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script>
+        // Improved login check
+        const userString = localStorage.getItem('user');
+        console.log('Initial user check:', userString); // Debug log
+        
+        if (!userString) {
+            console.log('No user data found, redirecting to login');
+            window.location.href = 'login.html';
+        } else {
+            try {
+                const user = JSON.parse(userString);
+                if (!user.id || !user.fullName) {
+                    console.log('Invalid user data, redirecting to login');
+                    localStorage.removeItem('user');
+                    window.location.href = 'login.html';
+                }
+            } catch (error) {
+                console.error('Error parsing user data:', error);
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar">

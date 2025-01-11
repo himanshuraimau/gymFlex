@@ -1,17 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if user is logged in
-    const user = JSON.parse(localStorage.getItem('user'));
+    console.log('Dashboard loading...'); // Debug log
     
-    if (!user) {
+    // Check if user is logged in
+    const userString = localStorage.getItem('user');
+    console.log('Stored user string:', userString); // Debug log
+    
+    const user = JSON.parse(userString);
+    console.log('Parsed user object:', user); // Debug log
+    
+    if (!user || !user.id || !user.fullName) {
+        console.error('Invalid or missing user data');
+        localStorage.removeItem('user'); // Clear invalid data
         window.location.href = 'login.html';
         return;
     }
 
     // Update UI with user information
-    document.getElementById('userName').textContent = user.fullName;
-    document.getElementById('userNameDisplay').textContent = user.fullName;
-    document.getElementById('membershipType').textContent = user.membershipType;
-    
+    try {
+        document.getElementById('userName').textContent = user.fullName;
+        document.getElementById('userNameDisplay').textContent = user.fullName;
+        document.getElementById('membershipType').textContent = user.membershipType || 'Standard';
+    } catch (error) {
+        console.error('Error updating UI:', error);
+    }
+
     // Logout functionality
     document.getElementById('logoutBtn').addEventListener('click', () => {
         localStorage.removeItem('user');
@@ -25,8 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
     workoutForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        if (!user.id) {
+            alert('User session expired. Please login again.');
+            window.location.href = 'login.html';
+            return;
+        }
+        
         const workout = {
-            userId: parseInt(user.id), // Ensure userId is a number
+            userId: user.id, // No need to parse as integer if backend expects string
             type: document.getElementById('workoutType').value,
             duration: parseInt(document.getElementById('duration').value),
             date: new Date().toISOString()
@@ -56,8 +74,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function loadWorkouts() {
+        if (!user.id) {
+            console.error('No user ID available');
+            return;
+        }
+
         try {
             const response = await fetch(`http://localhost:8080/api/workouts/${user.id}`);
+            if (!response.ok) {
+                throw new Error('Failed to load workouts');
+            }
             const workouts = await response.json();
             
             workoutList.innerHTML = workouts
