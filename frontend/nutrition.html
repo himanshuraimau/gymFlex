@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Plan - GymFlex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Check login status
+        if (!localStorage.getItem('user')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1><a href="/dashboard.html">GymFlex</a></h1>
+            <div class="nav-links">
+                <span id="userName"></span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="nutrition-section">
+            <h2>Nutrition Plan</h2>
+            
+            <form id="nutritionForm" class="nutrition-form">
+                <div class="form-group">
+                    <label for="mealDate">Date</label>
+                    <input type="date" id="mealDate" name="mealDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="mealType">Meal Type</label>
+                    <select id="mealType" name="mealType" required>
+                        <option value="">Select Meal</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                        <option value="snack">Snack</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mealCalories">Calories</label>
+                    <input type="number" id="mealCalories" name="mealCalories" required>
+                </div>
+                <div class="form-group">
+                    <label for="mealProtein">Protein (g)</label>
+                    <input type="number" id="mealProtein" name="mealProtein" required>
+                </div>
+                <div class="form-group">
+                    <label for="mealCarbs">Carbohydrates (g)</label>
+                    <input type="number" id="mealCarbs" name="mealCarbs" required>
+                </div>
+                <div class="form-group">
+                    <label for="mealFats">Fats (g)</label>
+                    <input type="number" id="mealFats" name="mealFats" required>
+                </div>
+                <button type="submit">Save Meal</button>
+            </form>
+
+            <div class="nutrition-history">
+                <h3>Nutrition History</h3>
+                <div id="nutritionList" class="nutrition-list">
+                    <!-- Nutrition items will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/nutrition.js"></script>
+    <script>
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

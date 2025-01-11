@@ -66,7 +66,7 @@
             <div class="card">
                 <h3>Nutrition Plan</h3>
                 <p>Check your meal plans</p>
-                <a href="#" class="card-link">View Plan</a>
+                <a href="nutrition.html" class="card-link">View Plan</a>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
             <form id="scheduleForm" class="schedule-form">
                 <div class="form-group">
                     <label for="scheduleDayOfWeek">Day of Week</label>
-                    <select id="scheduleDayOfWeek" required>
+                    <select id="scheduleDayOfWeek" name="scheduleDayOfWeek" required>
                         <option value="">Select Day</option>
                         <option value="MONDAY">Monday</option>
                         <option value="TUESDAY">Tuesday</option>
@@ -90,16 +90,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="startTime">Start Time</label>
-                        <input type="time" id="startTime" required>
+                        <input type="time" id="startTime" name="startTime" required>
                     </div>
                     <div class="form-group">
                         <label for="endTime">End Time</label>
-                        <input type="time" id="endTime" required>
+                        <input type="time" id="endTime" name="endTime" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="scheduleWorkoutType">Workout Type</label>
-                    <select id="scheduleWorkoutType" required>
+                    <select id="scheduleWorkoutType" name="scheduleWorkoutType" required>
                         <option value="">Select type</option>
                         <option value="cardio">Cardio</option>
                         <option value="strength">Strength Training</option>
@@ -110,7 +110,7 @@
                 </div>
                 <div class="form-group">
                     <label for="scheduleNotes">Notes</label>
-                    <textarea id="scheduleNotes" rows="3"></textarea>
+                    <textarea id="scheduleNotes" name="scheduleNotes" rows="3"></textarea>
                 </div>
                 <button type="submit">Add to Schedule</button>
             </form>
@@ -168,7 +168,7 @@
                 <form id="nutritionForm" class="nutrition-form">
                     <div class="form-group">
                         <label for="mealType">Meal Type</label>
-                        <select id="mealType" required>
+                        <select id="mealType" name="mealType" required>
                             <option value="">Select meal</option>
                             <option value="breakfast">Breakfast</option>
                             <option value="lunch">Lunch</option>
@@ -178,11 +178,11 @@
                     </div>
                     <div class="form-group">
                         <label for="calories">Calories</label>
-                        <input type="number" id="calories" required min="0">
+                        <input type="number" id="calories" name="calories" required min="0">
                     </div>
                     <div class="form-group">
                         <label for="protein">Protein (g)</label>
-                        <input type="number" id="protein" required min="0">
+                        <input type="number" id="protein" name="protein" required min="0">
                     </div>
                     <button type="submit">Log Meal</button>
                 </form>
