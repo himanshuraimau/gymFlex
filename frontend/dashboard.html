@@ -44,6 +44,75 @@
                 <a href="#" class="card-link">View Plan</a>
             </div>
         </div>
+
+        <section class="workout-tracker">
+            <h3>Workout Tracker</h3>
+            <form id="workoutForm" class="workout-form">
+                <div class="form-group">
+                    <label for="workoutType">Workout Type</label>
+                    <select id="workoutType" required>
+                        <option value="">Select type</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="flexibility">Flexibility</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (minutes)</label>
+                    <input type="number" id="duration" required min="1">
+                </div>
+                <button type="submit">Log Workout</button>
+            </form>
+            
+            <div class="workout-history">
+                <h4>Recent Workouts</h4>
+                <div id="workoutList" class="workout-list"></div>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            <section class="bmi-calculator">
+                <h3>BMI Calculator</h3>
+                <form id="bmiForm" class="bmi-form">
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" required min="20" max="300" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input type="number" id="height" required min="100" max="250">
+                    </div>
+                    <button type="submit">Calculate BMI</button>
+                </form>
+                <div id="bmiResult" class="bmi-result"></div>
+            </section>
+
+            <section class="nutrition-tracker">
+                <h3>Nutrition Tracker</h3>
+                <form id="nutritionForm" class="nutrition-form">
+                    <div class="form-group">
+                        <label for="mealType">Meal Type</label>
+                        <select id="mealType" required>
+                            <option value="">Select meal</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calories">Calories</label>
+                        <input type="number" id="calories" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="protein">Protein (g)</label>
+                        <input type="number" id="protein" required min="0">
+                    </div>
+                    <button type="submit">Log Meal</button>
+                </form>
+                <div id="nutritionList" class="nutrition-list"></div>
+            </section>
+        </div>
     </main>
     <script src="js/dashboard.js"></script>
 </body>

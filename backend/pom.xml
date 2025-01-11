@@ -47,6 +47,12 @@
             <artifactId>hibernate-community-dialects</artifactId>
         </dependency>
         
+        <!-- Jakarta Validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        
         <!-- Lombok to reduce boilerplate code -->
         <dependency>
             <groupId>org.projectlombok</groupId>

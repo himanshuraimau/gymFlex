@@ -76,3 +76,112 @@
     color: var(--dark-color);
     font-weight: 500;
 }
+
+.workout-tracker {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.workout-form {
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.workout-history {
+    margin-top: 2rem;
+}
+
+.workout-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.workout-item {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workout-item .details {
+    display: flex;
+    gap: 2rem;
+}
+
+.workout-item .date {
+    color: #666;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.bmi-calculator,
+.nutrition-tracker {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.bmi-result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.bmi-result.healthy {
+    background: #d4edda;
+    color: #155724;
+}
+
+.bmi-result.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.bmi-result.danger {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.nutrition-list {
+    margin-top: 1.5rem;
+}
+
+.nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--light-color);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.nutrition-item .meal-info {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nutrition-item .meal-type {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.nutrition-summary {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+}
