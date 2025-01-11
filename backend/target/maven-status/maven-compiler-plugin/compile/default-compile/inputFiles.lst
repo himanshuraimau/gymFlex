@@ -1,7 +1,7 @@
-C:\java-testing\backend\src\main\java\com\gym\app\repository\UserRepository.java
-C:\java-testing\backend\src\main\java\com\gym\app\dto\SignupRequest.java
-C:\java-testing\backend\src\main\java\com\gym\app\controller\AuthController.java
-C:\java-testing\backend\src\main\java\com\gym\app\dto\LoginRequest.java
-C:\java-testing\backend\src\main\java\com\gym\app\model\User.java
-C:\java-testing\backend\src\main\java\com\gym\app\GymApplication.java
-C:\java-testing\backend\src\main\java\com\gym\app\service\UserService.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/repository/UserRepository.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/model/User.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/controller/AuthController.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/service/UserService.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/dto/LoginRequest.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/dto/SignupRequest.java
+/home/himanshu/code/java-testing/backend/src/main/java/com/gym/app/GymApplication.java
