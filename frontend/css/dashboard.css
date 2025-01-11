@@ -185,3 +185,84 @@
     padding-top: 1.5rem;
     border-top: 1px solid #ddd;
 }
+
+.workout-schedule {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.schedule-form {
+    max-width: 600px;
+    margin-bottom: 2rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.schedule-day {
+    background: var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.schedule-day h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.schedule-item {
+    background: white;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+.schedule-time {
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.schedule-type {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+}
+
+.schedule-notes {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
+
+.no-schedule {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}

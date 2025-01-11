@@ -182,4 +182,101 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
     }
+
+    // Workout Schedule functionality
+    const scheduleForm = document.getElementById('scheduleForm');
+    const scheduleList = document.getElementById('scheduleList');
+
+    scheduleForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const schedule = {
+            userId: user.id,
+            dayOfWeek: document.getElementById('scheduleDayOfWeek').value,
+            startTimeStr: document.getElementById('startTime').value,
+            endTimeStr: document.getElementById('endTime').value,
+            workoutType: document.getElementById('scheduleWorkoutType').value,
+            notes: document.getElementById('scheduleNotes').value
+        };
+
+        try {
+            console.log('Sending schedule:', schedule);
+            const response = await fetch('http://localhost:8080/api/schedule', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(schedule)
+            });
+
+            const data = await response.json();
+            console.log('Response:', data);
+
+            if (response.ok) {
+                loadSchedule();
+                scheduleForm.reset();
+            } else {
+                alert('Failed to save schedule: ' + (data.message || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Error saving schedule:', error);
+            alert('Failed to save schedule');
+        }
+    });
+
+    async function loadSchedule() {
+        try {
+            const response = await fetch(`http://localhost:8080/api/schedule/${user.id}`);
+            if (!response.ok) throw new Error('Failed to load schedule');
+            
+            const schedules = await response.json();
+            displaySchedule(schedules);
+        } catch (error) {
+            console.error('Error loading schedule:', error);
+        }
+    }
+
+    function displaySchedule(schedules) {
+        const days = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY'];
+        const schedulesByDay = days.map(day => {
+            const daySchedules = schedules.filter(s => s.dayOfWeek === day);
+            return `
+                <div class="schedule-day">
+                    <h5>${day.charAt(0) + day.slice(1).toLowerCase()}</h5>
+                    ${daySchedules.map(s => `
+                        <div class="schedule-item">
+                            <div class="schedule-time">${s.startTime} - ${s.endTime}</div>
+                            <div class="schedule-type">${s.workoutType}</div>
+                            ${s.notes ? `<div class="schedule-notes">${s.notes}</div>` : ''}
+                            <button onclick="deleteSchedule(${s.id})" class="delete-btn">×</button>
+                        </div>
+                    `).join('') || '<p class="no-schedule">No workouts scheduled</p>'}
+                </div>
+            `;
+        }).join('');
+        
+        scheduleList.innerHTML = schedulesByDay;
+    }
+
+    async function deleteSchedule(id) {
+        if (!confirm('Are you sure you want to delete this schedule?')) return;
+        
+        try {
+            const response = await fetch(`http://localhost:8080/api/schedule/${id}`, {
+                method: 'DELETE'
+            });
+            
+            if (response.ok) {
+                loadSchedule();
+            } else {
+                alert('Failed to delete schedule');
+            }
+        } catch (error) {
+            console.error('Error deleting schedule:', error);
+            alert('Failed to delete schedule');
+        }
+    }
+
+    // Load schedule when dashboard loads
+    loadSchedule();
 });

@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Add schedule specific styles -->
+    <link rel="stylesheet" href="css/schedule.css">
     <script>
         // Improved login check
         const userString = localStorage.getItem('user');
@@ -54,7 +56,7 @@
             <div class="card">
                 <h3>Workout Schedule</h3>
                 <p>View and manage your workout routine</p>
-                <a href="#" class="card-link">View Schedule</a>
+                <a href="javascript:void(0)" onclick="toggleScheduleSection()" class="card-link">View Schedule</a>
             </div>
             <div class="card">
                 <h3>Progress Tracker</h3>
@@ -67,6 +69,57 @@
                 <a href="#" class="card-link">View Plan</a>
             </div>
         </div>
+
+        <!-- Add this section after the dashboard-cards div -->
+        <section class="workout-schedule" id="workoutScheduleSection" style="display: none;">
+            <h3>Workout Schedule</h3>
+            <form id="scheduleForm" class="schedule-form">
+                <div class="form-group">
+                    <label for="scheduleDayOfWeek">Day of Week</label>
+                    <select id="scheduleDayOfWeek" required>
+                        <option value="">Select Day</option>
+                        <option value="MONDAY">Monday</option>
+                        <option value="TUESDAY">Tuesday</option>
+                        <option value="WEDNESDAY">Wednesday</option>
+                        <option value="THURSDAY">Thursday</option>
+                        <option value="FRIDAY">Friday</option>
+                        <option value="SATURDAY">Saturday</option>
+                        <option value="SUNDAY">Sunday</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startTime">Start Time</label>
+                        <input type="time" id="startTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time</label>
+                        <input type="time" id="endTime" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="scheduleWorkoutType">Workout Type</label>
+                    <select id="scheduleWorkoutType" required>
+                        <option value="">Select type</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="flexibility">Flexibility</option>
+                        <option value="hiit">HIIT</option>
+                        <option value="yoga">Yoga</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="scheduleNotes">Notes</label>
+                    <textarea id="scheduleNotes" rows="3"></textarea>
+                </div>
+                <button type="submit">Add to Schedule</button>
+            </form>
+            
+            <div class="schedule-list">
+                <h4>Your Weekly Schedule</h4>
+                <div id="scheduleList" class="schedule-grid"></div>
+            </div>
+        </section>
 
         <section class="workout-tracker">
             <h3>Workout Tracker</h3>
@@ -138,5 +191,18 @@
         </div>
     </main>
     <script src="js/dashboard.js"></script>
+    <script src="js/schedule.js"></script>
+    <script>
+        function toggleScheduleSection() {
+            const scheduleSection = document.getElementById('workoutScheduleSection');
+            if (scheduleSection.style.display === 'none') {
+                scheduleSection.style.display = 'block';
+                // Load schedule data when section is shown
+                loadUserSchedule();
+            } else {
+                scheduleSection.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

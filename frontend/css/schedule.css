@@ -1,0 +1,55 @@
+.schedule-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.schedule-grid {
+    display: grid;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.schedule-item {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.schedule-item .time {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.schedule-item .workout-type {
+    font-weight: 600;
+    color: #333;
+}
+
+.delete-schedule {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-schedule:hover {
+    background: #cc0000;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
