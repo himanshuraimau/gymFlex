@@ -135,5 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const signupForm = document.getElementById('signupForm');
+
+    if (signupForm) {
+        signupForm.addEventListener('submit', handleSignup);
+    }
+
     // ...existing signup code...
 });
